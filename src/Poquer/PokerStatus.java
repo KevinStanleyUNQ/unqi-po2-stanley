@@ -2,13 +2,6 @@ package Poquer;
 
 import java.util.ArrayList;
 
-/**
- * 
- * Hacer Refactor que esta horrible.
- * 
- * 
- * */
-
 public class PokerStatus {
 	
 	
