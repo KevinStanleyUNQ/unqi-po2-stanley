@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 class PokerTestPokerTrioColorONada {
 	
 	PokerStatus pokerStatus;
-	IJugada jugada;
 	Jugada poker;
 	Jugada trio;
 	Jugada color;
@@ -20,42 +19,86 @@ class PokerTestPokerTrioColorONada {
 	
 	@BeforeEach
 	void setUp()
-		{
-			pokerStatus = new PokerStatus();
-			
+		{	
 			poker = new Poker();
 			trio = new Trio();
 			color = new Color();
+		}
+	
+	@Test
+	void testLaJugadaEsNada(){
+		
+		pokerStatus = new PokerStatus();
+		
+		pokerStatus.agregarJugadas(poker);
+		pokerStatus.agregarJugadas(trio);
+		pokerStatus.agregarJugadas(color);
+		
+		carta1 = "3D";
+		carta2 = "6T";
+		carta3 = "QC";
+		carta4 = "2P";
+		carta5 = "1D";
+		
+		assertEquals("Nada", pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5));
+		
+	}
+	
+	
+	@Test
+	void testLaJugadaEsPoker() 
+		{
+			pokerStatus = new PokerStatus();
 			
 			pokerStatus.agregarJugadas(poker);
 			pokerStatus.agregarJugadas(trio);
 			pokerStatus.agregarJugadas(color);
-		}
-	
-
-	@Test
-	void testHayPoker() 
-		{
-			carta1 = "4D";
-			carta2 = "4T";
-			carta3 = "4C";
-			carta4 = "4P";
+		
+			carta1 = "10D";
+			carta2 = "10T";
+			carta3 = "10C";
+			carta4 = "10P";
 			carta5 = "5D";
 			
 			assertEquals("Poker", pokerStatus.verificar(carta1,carta2,carta3,carta4,carta5));
 		}
 	
 	@Test
-	void testHayTrio()
+	void testLaJugadaEsTrio()
 		{
+			pokerStatus = new PokerStatus();
+		
+			pokerStatus.agregarJugadas(poker);
+			pokerStatus.agregarJugadas(trio);
+			pokerStatus.agregarJugadas(color);
+			
 			carta1 = "7D";
 			carta2 = "7T";
-			carta3 = "2C";
+			carta3 = "7C";
 			carta4 = "3P";
 			carta5 = "5D";
 	
-			assertEquals("Trio", pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5));
-			
+			assertEquals("Trio", pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5));		
 		}
+	
+	@Test
+	void testLaJugadaEsColor(){
+		
+		pokerStatus = new PokerStatus();
+		
+		pokerStatus.agregarJugadas(poker);
+		pokerStatus.agregarJugadas(trio);
+		pokerStatus.agregarJugadas(color);
+		
+		carta1 = "1D";
+		carta2 = "2C";
+		carta3 = "3D";
+		carta4 = "4D";
+		carta5 = "5C";
+		
+		assertEquals("Color", pokerStatus.verificar(carta1, carta2, carta3, carta4, carta5));
+		
+		
+	}
 
 }

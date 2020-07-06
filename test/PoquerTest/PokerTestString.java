@@ -7,9 +7,12 @@ import org.junit.jupiter.api.Test;
 
 import Poquer.PokerStatus;
 
+	
+
+
 class PokerTestString {
 	
-	PokerStatus pokerStatus = new PokerStatus();
+	PokerStatus pokerStatus;
 	
 	String carta1;
 	String carta2;
@@ -20,6 +23,8 @@ class PokerTestString {
 	@BeforeEach
 		void setUp()
 			{
+				pokerStatus = new PokerStatus();
+				
 				carta1 = "2T";
 				carta2 = "QD";
 				carta3 = "2C";

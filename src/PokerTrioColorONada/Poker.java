@@ -4,30 +4,27 @@ import java.util.ArrayList;
 
 public class Poker extends Jugada{
 
-	
-
-
 	@Override
 	public void verificarJugada(String carta1, String carta2, String carta3, 
 								String carta4, String carta5, PokerStatus pokerStatus)
 		{	
 			int poker = 1;
 			ArrayList <String> cartas = new ArrayList<String>();
-			cartas.add(carta1);
-			cartas.add(carta2);
-			cartas.add(carta3);
-			cartas.add(carta4);
-			cartas.add(carta5);
+			cartas.add(carta1);	// 4D
+			cartas.add(carta2); // 4T
+			cartas.add(carta3); // 4C
+			cartas.add(carta4); // 4P
+			cartas.add(carta5); // 5D
 
-			for(int i=0;i<cartas.size()&&poker<4;i++)
+			for(int i=0;i<cartas.size()&&poker<4;i++)//0//1
 			{
-				for(int k=0;k<4;k++)//i=4 p=3
+				for(int k=i;k<4;k++)//0//1//2//3//NoProcesa--//
 					{
-						poker += comprobarSiSonElMismoNumero(cartas.get(i), cartas.get(k));
+						poker += comprobarSiSonElMismoNumero(cartas.get(i), cartas.get(k));//1+0//1+1//2+1//3+1
 					}
 			
-			 comprobarDeQueSeaPoker(poker, pokerStatus);	
 			}
+			comprobarDeQueSeaPoker(poker, pokerStatus);	
 		}
 
 
@@ -35,18 +32,14 @@ public class Poker extends Jugada{
 			{	
 				if (poker==4)
 					{
-						pokerStatus.guardarJugadaEnMano("Poker");
+						pokerStatus.guardarJugadaEnMano(this);	
 					}	
 			}
 
 
 	/**
-	 * 
 	 * Comprueba si los Numeros de las String(posicion 0 del String) es igual al segundo numero
 	 * del siguiente String. De ser igual devuelve "1" y sino "0".
-	 * 
-	 *
-	 * 
 	 * 
 	 **/
 
@@ -56,5 +49,12 @@ public class Poker extends Jugada{
 				int resultado = (carta1==carta2) ? 0 : condicion2;
 				return resultado;
 			}
+
+
+	@Override
+	public String getEnString(){
+	
+		return "Poker";
+	}
 
 }
