@@ -2,9 +2,9 @@ package VideoJuego;
 
 public abstract class Estado {
 
-	protected abstract String presionarInicio();
+	public abstract String presionarInicio();
 
-	protected abstract void puedeHacerseCargo(int cantidadDeFichasIngresadas, VideoJuego videoJuego);
+	public abstract void puedeHacerseCargo(int cantidadDeFichasIngresadas, VideoJuego videoJuego);
 	
 	
 

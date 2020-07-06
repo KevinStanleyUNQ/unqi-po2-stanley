@@ -64,7 +64,8 @@ public class EncriptadorPorVocal extends FormaDeEncriptar {
 		return obtenerEnFormatoStringLaLista(stringDesencriptado);
 	}
 	
-	private void desenctriptarCambiandoVocales(List<String> stringArmado, List<String> stringDesencriptado){
+	private void desenctriptarCambiandoVocales(List<String> stringArmado,
+											   List<String> stringDesencriptado){
 
 		for(int d=0;d<stringArmado.size();d++){
 			stringDesencriptado.add(vocalAnteriorSinoElMismo(stringArmado.get(d)));
@@ -92,6 +93,6 @@ public class EncriptadorPorVocal extends FormaDeEncriptar {
 		
 		default:
 		return unaLetra;
+		}
 	}
-}
 }

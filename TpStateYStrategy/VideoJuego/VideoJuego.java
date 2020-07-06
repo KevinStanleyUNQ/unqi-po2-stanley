@@ -5,9 +5,9 @@ import java.util.List;
 
 public class VideoJuego {
 
-	List<Estado> estados = new ArrayList<Estado>();
-	int cantidadDeFichasIngresadas = 0;
-	Estado miEstado;
+	private List<Estado> estados = new ArrayList<Estado>();
+	private int cantidadDeFichasIngresadas = 0;
+	private Estado miEstado;
 	
 	public VideoJuego(){
 		this.miEstado = new EstadoSinFichas();
